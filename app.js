@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const body_parser = require('body-parser');
 const UserRoutes = require('./routes/UserRoutes');
 
@@ -13,7 +13,7 @@ mongoose.connect('mongodb+srv://vikas:vikas@crud-iyb9s.mongodb.net/test?retryWri
     console.log("Something went wrong ", err)
 })
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json());
