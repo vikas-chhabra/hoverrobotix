@@ -6,6 +6,7 @@ app.get('/',user.getAllUsers);
 app.post('/login',user.login);
 app.post('/signup',user.signUp);
 app.post('/loginVerify',user.loginVerify);
-// app.post('/:userId',user.deActivate);
+app.delete('/:userId',user.deActivate);
+app.get('/:userId',user.getSpecificUser);
 
 module.exports = app;

@@ -156,3 +156,57 @@ exports.loginVerify=(req,res)=>{
         }
     })
 }
+
+exports.deActivate = (req, res) => {
+    User.findById(req.params.userId)
+        .then(user => {
+            if (user.length > 1) {
+                return res.status(401).json({
+                    response: false,
+                    msg: 'Auth failed'
+                });
+            } else {
+                User.findByIdAndUpdate(req.params.userId, {
+                        active: !user.active
+                    })
+                    .then(_ => {
+                        res.status(200).json({
+                            response: true,
+                            msg: 'User Toggled'
+                        });
+                    }).catch(_ => {
+                        res.status(401).json({
+                            response: false,
+                            msg: 'User not Found'
+                        })
+                    })
+
+            }
+        })
+        .catch(err => {
+            res.status(401).json({
+                response: false,
+                msg: 'Auth failed, Some error occured',
+                error:err
+            })
+        })
+}
+
+exports.getSpecificUser=(req,res)=>{
+    let userId = req.params.userId;
+
+    User.findById(userId)
+    .then((userDetails)=>{
+        res.status(200).json({
+            response:true,
+            userDetails
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            response:false,
+            message:"Something went wrong while fetching the users details from the database",
+            error:err
+        })
+    })
+}

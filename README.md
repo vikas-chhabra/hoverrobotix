@@ -1,5 +1,7 @@
 API Documentation
 
+Base URl - https://hoverrobotix.herokuapp.com
+
 Users
 
     1. Get All Users
@@ -24,3 +26,12 @@ Users
         Method - POST
         Params - a. email
                  b. token
+    
+    5. User Active Toggle
+        Route - 'api/users/:userId'
+        Method - DELETE
+
+    6. Get Specific User Details
+        Rotue - 'api/users/:userId'
+        Method - GET
+        
