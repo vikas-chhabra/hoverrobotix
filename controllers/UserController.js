@@ -56,7 +56,7 @@ exports.signUp = (req, res) => {
                                 })
                                 .catch(error => {
                                     res.status({
-                                        success: false,
+                                        response: false,
                                         msg: 'Error while creating user',
                                         error
                                     });

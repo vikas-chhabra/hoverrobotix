@@ -34,4 +34,18 @@ Users
     6. Get Specific User Details
         Rotue - 'api/users/:userId'
         Method - GET
-        
+
+Categories
+
+    1. Get All Categories
+        Rotue - '/api/categories/'
+        Method - 'GET'
+    
+    2. Insert a new category
+        Route - 'api/categories/insertCategory'
+        Method - 'POST'
+        Params - a. categoryName
+    
+    3. Edit a Already existing Category
+        Route - 'api/categories/:categoryId/:newCategoryName'
+        Method - 'GET'
