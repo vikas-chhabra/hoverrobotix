@@ -11,7 +11,7 @@ Users
     2. Sign Up 
         Route - 'users/signup'
         Method - POST
-        Params - a. username
+        Params - a. username (full Name)
                  b. password
                  c. email
 
@@ -59,3 +59,14 @@ Products
     1. Fetch All Products
         Route - 'products/'
         Method - 'GET'
+    
+    2. Add Product
+        //form data
+        Route - 'products/addProduct/'
+        Method - 'POST'
+        Params - a. description
+                 b. spec
+                 c. productName
+                 d. productImages (array of images)
+                 e. category id
+                 

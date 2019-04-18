@@ -36,6 +36,7 @@ app.use((req,res,next)=>{
 app.use('/api/users', UserRoutes);
 app.use('/api/categories', CategoryRoutes);
 app.use('/api/products',ProductRoutes);
+app.use('/uploads',express.static('uploads'))
 
 app.use((req,res,next)=>{
     const error = new Error("Route Not Found");
