@@ -8,7 +8,6 @@ const productsSchema = mongoose.Schema({
     spec: {
         type: String,
         required: [true, 'Spec are required'],
-        unique: true
     },
     description: {
         type: String,

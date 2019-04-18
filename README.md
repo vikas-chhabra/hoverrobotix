@@ -70,3 +70,11 @@ Products
                  d. productImages (array of images)
                  e. category id
                  
+    3. Delete Product 
+        Route - 'products/:productId'
+        Method - 'DELETE'
+
+    4. Get Products for the specific Category 
+        Route - 'products/:categoryId'
+        Method - 'GET'
+        

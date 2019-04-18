@@ -27,5 +27,7 @@ const upload = multer({storage,file_filter:file_filter});
 
 app.get('/',product.getAllProducts);
 app.post('/addProduct',upload.array('productImages'),product.addProduct);
+app.delete('/:productId',product.deleteProduct);
+app.get('/:categoryId',product.getSpecificCategoryProducts);
 
 module.exports = app;
