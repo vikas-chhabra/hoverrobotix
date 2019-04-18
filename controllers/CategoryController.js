@@ -88,3 +88,27 @@ exports.editCategory = (req, res) => {
             })
         })
 }
+
+exports.deleteCategory = (req, res) => {
+    let categoryId = req.params.categoryId;
+
+    if (categoryId !== undefined) {
+        Categories.deleteOne({
+                _id: categoryId
+            })
+            .then(result => {
+                res.status(200).json({
+                    response:true,
+                    message:"Category deleted successfully!!",
+                    result
+                })
+            })
+            .catch(err=>{
+                res.status(200).json({
+                    response:true,
+                    message:"Somthint went wrong while deleting the category from the databse",
+                    error:err
+                })
+            })
+    }
+}

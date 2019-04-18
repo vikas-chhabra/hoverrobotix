@@ -49,3 +49,13 @@ Categories
     3. Edit a Already existing Category
         Route - 'categories/:categoryId/:newCategoryName'
         Method - 'GET'
+
+    4. Delete a Category
+        Route - 'categories/:categoryId'
+        Method - 'DELETE'
+
+Products
+
+    1. Fetch All Products
+        Route - 'products/'
+        Method - 'GET'
