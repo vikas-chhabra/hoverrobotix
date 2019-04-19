@@ -78,3 +78,12 @@ Products
     4. Get Products for the specific Category 
         Route - 'products/:categoryId'
         Method - 'GET'
+
+Orders 
+
+    1. Save order to the database
+        Route - 'order/'
+        Method - 'POST'
+        Params - a. order (array)
+                 b. userId (id)
+                 c. amount (number)

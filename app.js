@@ -7,6 +7,7 @@ const body_parser = require('body-parser');
 const UserRoutes = require('./routes/UserRoutes');
 const CategoryRoutes = require('./routes/CategoryRoutes');
 const ProductRoutes = require('./routes/ProductRoutes');
+const OrderRoutes = require('./routes/OrderRoutes');
 
 mongoose.connect('mongodb+srv://vikas:vikas@crud-iyb9s.mongodb.net/test?retryWrites=true',{useNewUrlParser:true})
 .then(()=>{
@@ -36,6 +37,7 @@ app.use((req,res,next)=>{
 app.use('/api/users', UserRoutes);
 app.use('/api/categories', CategoryRoutes);
 app.use('/api/products',ProductRoutes);
+app.use('/api/order',OrderRoutes);
 app.use('/uploads',express.static('uploads'))
 
 app.use((req,res,next)=>{
