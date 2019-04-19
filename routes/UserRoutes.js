@@ -9,5 +9,6 @@ app.post('/loginVerify',user.loginVerify);
 app.delete('/:userId',user.deActivate);
 app.get('/:userId',user.getSpecificUser);
 app.post('/address',user.saveAddress);
+app.patch('/count',user.countUsers);
 
 module.exports = app;

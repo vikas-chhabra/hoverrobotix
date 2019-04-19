@@ -34,13 +34,13 @@ exports.signUp=(req,res)=>{
                                 .then(_ => {
                                     res.status(201).json({
                                         response: true,
-                                        msg: 'Admin Created successfully!'
+                                        message: 'Admin Created successfully!'
                                     });
                                 })
                                 .catch(error => {
                                     res.status({
                                         response: false,
-                                        msg: 'Error while creating Admin',
+                                        message: 'Error while creating Admin',
                                         error
                                     });
                                 });
@@ -67,14 +67,14 @@ exports.login = (req, res) => {
             if (user.length > 1) {
                 return res.status(401).json({
                     response: false,
-                    msg: 'Auth failed due to some reason please contact backend developer'
+                    message: 'Auth failed due to some reason please contact backend developer'
                 });
             } else {
                 bcrypt.compare(password, user.password, function (error, result) {
                     if (error) {
                         return res.status(401).json({
                             success: false,
-                            msg: 'Auth failed'
+                            message: 'Auth failed'
                         });
                     }
                     if (result) {
@@ -86,14 +86,14 @@ exports.login = (req, res) => {
                         });
                         return res.status(200).json({
                             response: true,
-                            msg: 'Auth successful',
+                            message: 'Auth successful',
                             token,
                             userDetails:user
                         });
                     } else {
                         res.status(401).json({
                             response: false,
-                            msg: 'Invalid Credentials',
+                            message: 'Invalid Credentials',
                         })
                     }
                 })
@@ -102,7 +102,7 @@ exports.login = (req, res) => {
         .catch(err => {
             res.status(401).json({
                 success: false,
-                msg: 'Auth failed',
+                message: 'Auth failed',
                 error:err
             })
         })

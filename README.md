@@ -41,6 +41,10 @@ Users
         Method - POST
         Params - a. address
                  b. userId
+    
+    8. Stats
+        Route - 'users/count'
+        Method - PATCH
 
 Categories
 

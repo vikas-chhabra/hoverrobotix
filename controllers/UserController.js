@@ -166,7 +166,7 @@ exports.deActivate = (req, res) => {
             if (user.length > 1) {
                 return res.status(401).json({
                     response: false,
-                    msg: 'Auth failed'
+                    msg: 'Something went wrong please try again later'
                 });
             } else {
                 User.findByIdAndUpdate(req.params.userId, {
@@ -189,7 +189,7 @@ exports.deActivate = (req, res) => {
         .catch(err => {
             res.status(401).json({
                 response: false,
-                msg: 'Auth failed, Some error occured',
+                msg: 'Something went wrong, Please try again later',
                 error:err
             })
         })
@@ -235,3 +235,30 @@ exports.saveAddress=(req,res)=>{
     })
 
 }
+
+exports.countUsers=(req,res)=>{
+    User.find({'active':true}).count().exec().then((active)=>{
+        User.find({'active':false}).count().exec().then((inactive)=>{
+            res.status(200).json({
+                response:true,
+                message:'Fetched successfully',
+                activeUsers:active,
+                inactveUsers:inactive
+            })
+        })
+        .catch(err=>{
+            res.status(500).json({
+                response:false,
+                message:'Something went wrong while fetching the data from the database',
+                error:err
+            })
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            response:false,
+            message:'Something went wrong while fetching the data from the database',
+            error:err
+        })
+    })
+}  
