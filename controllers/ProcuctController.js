@@ -23,6 +23,7 @@ exports.addProduct = (req, res) => {
     let description = req.body.description;
     let images_array = [];
     let categoryId = req.body.categoryId;
+    let price = req.body.price;
 
     req.files.forEach(element => {
         images_array.push(element.path)
@@ -33,7 +34,8 @@ exports.addProduct = (req, res) => {
         spec: spec,
         description: description,
         images: images_array,
-        categoryId: categoryId
+        categoryId: categoryId,
+        price: price
     })
 
     product.save()

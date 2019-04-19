@@ -23,6 +23,10 @@ const productsSchema = mongoose.Schema({
     },
     images:{
         type: Array,
+    },
+    price:{
+        type: Number,
+        required:[true, 'Product Price is required']
     }
 }, {
     timestamps: true

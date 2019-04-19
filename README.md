@@ -69,6 +69,7 @@ Products
                  c. productName
                  d. productImages (array of images)
                  e. category id
+                 f: price
                  
     3. Delete Product 
         Route - 'products/:productId'
@@ -77,4 +78,3 @@ Products
     4. Get Products for the specific Category 
         Route - 'products/:categoryId'
         Method - 'GET'
-        
