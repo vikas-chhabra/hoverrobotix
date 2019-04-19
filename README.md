@@ -117,3 +117,23 @@ Contact Form
         Route - 'contact/'
         Method - 'GET'
 
+Admin 
+    1. Signup Admin
+        Route - 'admin/'
+        Method - 'POST'
+        Params - a. username
+                 b. email
+                 c. password
+    
+    2. Login Admin  
+        Route - 'admin/login'
+        Method - 'POST'
+        Params - a. email
+                 b. password
+    
+    3. Token verify 
+        Route - 'admin/loginVerify'
+        Method - 'POST'
+        Params - a. email
+                 b. token
+
