@@ -104,3 +104,23 @@ exports.getSpecificCategoryProducts = (req,res) =>{
         })
     })
 }
+
+exports.getDetailsOfProduct=(req,res)=>{
+    let productID = req.params.productId;
+
+    Products.findById(productID).populate('categoryId')
+    .then(details=>{
+        res.status(200).json({
+            response:true,
+            message:"Product Information fetched Successfully!",
+            details
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            response:false,
+            message:"Something went wrong while fetching the information from the database",
+            error:err
+        })
+    })
+}

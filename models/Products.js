@@ -19,7 +19,8 @@ const productsSchema = mongoose.Schema({
     },
     categoryId:{
         type:mongoose.Schema.Types.ObjectId,
-        required:[true, 'Category Id is required']
+        required:[true, 'Category Id is required'],
+        ref:'Categories'
     },
     images:{
         type: Array,

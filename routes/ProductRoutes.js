@@ -29,5 +29,6 @@ app.get('/',product.getAllProducts);
 app.post('/addProduct',upload.array('productImages'),product.addProduct);
 app.delete('/:productId',product.deleteProduct);
 app.get('/:categoryId',product.getSpecificCategoryProducts);
+app.get('/getDetailsOfProduct/:productId', product.getDetailsOfProduct)
 
 module.exports = app;

@@ -85,6 +85,10 @@ Products
     4. Get Products for the specific Category 
         Route - 'products/:categoryId'
         Method - 'GET'
+    
+    5. Get Details of specific product
+        Route - 'products/getDetailsOfProduct/:productId'
+        Method - 'GET'
 
 Orders 
 
