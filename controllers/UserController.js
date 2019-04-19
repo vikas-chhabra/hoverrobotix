@@ -24,6 +24,8 @@ exports.signUp = (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
     let username = req.body.username;
+    let gender = req.body.gender;
+
     if (email && password && username) {
         User.find({
                 email: email
@@ -45,7 +47,8 @@ exports.signUp = (req, res) => {
                             const user = new User({
                                 userName: username,
                                 email: email,
-                                password: hash
+                                password: hash,
+                                gender:gender
                             });
                             user.save()
                                 .then(_ => {
@@ -110,7 +113,7 @@ exports.login = (req, res) => {
                     } else {
                         res.status(401).json({
                             response: false,
-                            msg: 'Auth failed',
+                            msg: 'Invalid Credentials',
                         })
                     }
                 })
@@ -209,4 +212,26 @@ exports.getSpecificUser=(req,res)=>{
             error:err
         })
     })
+}
+
+exports.saveAddress=(req,res)=>{
+    let address = req.body.address; 
+    let userId = req.body.userId;
+
+    User.updateOne({_id:userId},{$set:{address:address}})
+    .then((result=>{
+        res.status(200).json({
+            response:true,
+            message:"address Updated Successfully!",
+            result
+        })
+    }))
+    .catch(err=>{
+        res.status(500).json({
+            response:false,
+            message:"Something went wrong while saving the address to the database",
+            error:err
+        })
+    })
+
 }

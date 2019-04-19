@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const body_parser = require('body-parser');
 
 const UserRoutes = require('./routes/UserRoutes');
 const CategoryRoutes = require('./routes/CategoryRoutes');
 const ProductRoutes = require('./routes/ProductRoutes');
 const OrderRoutes = require('./routes/OrderRoutes');
+const ContactRoutes = require('./routes/ContactRoutes');
 
 mongoose.connect('mongodb+srv://vikas:vikas@crud-iyb9s.mongodb.net/test?retryWrites=true',{useNewUrlParser:true})
 .then(()=>{
@@ -17,7 +18,7 @@ mongoose.connect('mongodb+srv://vikas:vikas@crud-iyb9s.mongodb.net/test?retryWri
     console.log("Something went wrong ", err)
 })
 
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json());
@@ -38,6 +39,7 @@ app.use('/api/users', UserRoutes);
 app.use('/api/categories', CategoryRoutes);
 app.use('/api/products',ProductRoutes);
 app.use('/api/order',OrderRoutes);
+app.use('/contact',ContactRoutes);
 app.use('/uploads',express.static('uploads'))
 
 app.use((req,res,next)=>{

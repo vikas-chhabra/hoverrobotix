@@ -8,7 +8,7 @@ exports.postOrder = (req, res) => {
     const orderToSave = new Order({
         order: order,
         userId: userId,
-        amount: amount
+        amount: amount,
     })
 
     orderToSave.save()
@@ -26,4 +26,44 @@ exports.postOrder = (req, res) => {
                 response:false
             })
         })
+}
+
+exports.orderForUser = (req,res) =>{
+    let userId = req.params.userId;
+
+    Order.findById(userId)
+    .then((result)=>{
+        res.status(200).json({
+            response:true,
+            message:'Successfully fetched the orders',
+            result
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            response:false,
+            message:"Something went wrong while fetching the orders from the database",
+            error:err
+        })
+    })
+}
+
+exports.toggleOrderStatus = (req,res) =>{
+    let orderId = req.params.orderId;
+
+    Order.findByIdAndUpdate(orderId, {
+        orderStatus: !orderStatus
+    })
+    .then(_ => {
+        res.status(200).json({
+            response: true,
+            msg: 'Order Toggled'
+        });
+    }).catch(_ => {
+        res.status(401).json({
+            response: false,
+            msg: 'Order not Found'
+        })
+    })
+
 }

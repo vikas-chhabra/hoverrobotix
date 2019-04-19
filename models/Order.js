@@ -7,11 +7,15 @@ const orderSchema = mongoose.Schema({
     },
     userId:{
         type: mongoose.Schema.Types.ObjectId,
-        required: [ture, 'User Id is required'] 
+        required: [true, 'User Id is required'] 
     },
     ammount:{
         type: Number,
-        required: [ture, 'Amount Id is required']
+        required: [true, 'Amount Id is required']
+    },
+    orderStatus:{
+        type: Boolean,
+        default:false,
     }
 }, {
     timestamps: true

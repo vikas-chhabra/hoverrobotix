@@ -14,6 +14,7 @@ Users
         Params - a. username (full Name)
                  b. password
                  c. email
+                 d. gender
 
     3. Login 
         Route - 'users/login'
@@ -34,6 +35,12 @@ Users
     6. Get Specific User Details
         Rotue - 'users/:userId'
         Method - GET
+    
+    7. Save address
+        Route - 'users/address'
+        Method - POST
+        Params - a. address
+                 b. userId
 
 Categories
 
@@ -87,3 +94,26 @@ Orders
         Params - a. order (array)
                  b. userId (id)
                  c. amount (number)
+    
+    2. Fetch orders for the particular User
+        Route - 'order/:userId'
+        Method - 'POST'
+    
+    3. Toggle order status
+        Route - 'order/:orderId'
+        Method - 'GET'
+
+Contact Form 
+
+    1. Save the Query
+        Route - 'contact/'
+        Method - 'POST'
+        Params - a. name
+                 b. subject
+                 c. message
+                 d. email
+    
+    2. Get All Querys
+        Route - 'contact/'
+        Method - 'GET'
+

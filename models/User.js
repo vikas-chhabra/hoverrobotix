@@ -18,6 +18,15 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: true
     },
+    address:{
+        type:String,
+        default:null,
+    },
+    gender:{
+        type:Boolean,
+        default:true,
+        required: [true, 'Gender is required']
+    }
 }, {
     timestamps: true
 });

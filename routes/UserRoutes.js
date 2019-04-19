@@ -8,5 +8,6 @@ app.post('/signup',user.signUp);
 app.post('/loginVerify',user.loginVerify);
 app.delete('/:userId',user.deActivate);
 app.get('/:userId',user.getSpecificUser);
+app.post('/address',user.saveAddress);
 
 module.exports = app;
